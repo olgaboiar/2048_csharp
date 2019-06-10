@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using csharp2048;
@@ -59,11 +60,25 @@ namespace Tests
         
 
         [Test]
-        public void ReturnsTrueIfSpotIsZero()
+        public void ChecksIfSpotIsZero()
         {
             Assert.True(_board.IsAvailableSpot(0));
             Assert.False(_board.IsAvailableSpot(2));
             Assert.False(_board.IsAvailableSpot(2048));
+        }
+        
+        [Test]
+        public void ChecksIfBoardHasEmptySpots()
+        {
+            Assert.False(_board.IsFull());
+            
+            _board.SetSpot(4, 32);
+            _board.SetSpot(3, 64);
+            
+            Assert.False(_board.IsFull());
+            
+            _board.Spots = new List<Int32>() {2, 4, 16, 8, 16, 32, 64, 128, 256, 1024, 2048, 2, 4, 8, 16, 32};
+            Assert.True(_board.IsFull());
         }
     }
 }

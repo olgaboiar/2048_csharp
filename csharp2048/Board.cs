@@ -33,5 +33,10 @@ namespace csharp2048
         {
             return spot == 0;
         }
+
+        public bool IsFull()
+        {
+            return GetAvailableSpots().Count == 0;
+        }
     }
 }
