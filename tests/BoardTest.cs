@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 using csharp2048;
 
@@ -30,45 +31,39 @@ namespace Tests
 //            Assert.AreEqual('o',_board.GetSpot(4));
 //        }
 
-//        [Test]
-//        public void SetSpotAssignsSpotValue()
-//        {
-//            _board.SetSpot(2, 'x');
-//            var actual = _board.Spots[1];
-//            Assert.AreEqual('x', actual);
-//        }
-//
-//        [Test]
-//        public void ReturnsListOfAvailableSpots()
-//        {
-//            Assert.AreEqual(9, _board.GetAvailableSpots().Count);
-//            
-//            _board.SetSpot(4, 'o');
-//            
-//            Assert.AreEqual(8, _board.GetAvailableSpots().Count);
-//            Assert.AreEqual(new List<object>() {1,2,3,5,6,7,8,9}, _board.GetAvailableSpots());
-//        }
+        [Test]
+        public void SetSpotAssignsSpotValue()
+        {
+            _board.SetSpot(2, 16);
+            var actual = _board.Spots[2];
+            Assert.AreEqual(16, actual);
+        }
+
+        [Test]
+        public void ReturnsListOfAvailableSpotsIndexesForEmptyBoard()
+        {
+            Assert.AreEqual(16, _board.GetAvailableSpots().Count);
+            Assert.AreEqual(new List<object>() {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}, _board.GetAvailableSpots());
+        }
         
-//        [Test]
-//        public void ReturnsBoardAsStringToBePrinted()
-//        {
-//            var emptyBoard = _board.PrepareForPrint();
-//            
-//            Assert.AreEqual("\n          1 | 2 | 3\n         -----------\n          4 | 5 | 6\n         -----------\n          7 | 8 | 9\n        \n", emptyBoard);
-//            
-//            _board.SetSpot(3, 'x');
-//            _board.SetSpot(4, 'o');
-//            var notEmptyBoard = _board.PrepareForPrint();
-//            
-//            Assert.AreEqual("\n          1 | 2 | x\n         -----------\n          o | 5 | 6\n         -----------\n          7 | 8 | 9\n        \n", notEmptyBoard);
-//        }
-//
-//        [Test]
-//        public void ReturnsTrueIfSpotIsInteger()
-//        {
-//            Assert.True(_board.IsAvailableSpot(2));
-//            Assert.False(_board.IsAvailableSpot('x'));
-//            Assert.False(_board.IsAvailableSpot('4'));
-//        }
+        [Test]
+        public void ReturnsListOfAvailableSpotsIndexesForNotEmptyBoard()
+        {
+            Assert.AreEqual(16, _board.GetAvailableSpots().Count);
+            
+            _board.SetSpot(4, 32);
+            
+            Assert.AreEqual(15, _board.GetAvailableSpots().Count);
+            Assert.AreEqual(new List<object>() {0,1,2,3,5,6,7,8,9,10,11,12,13,14,15}, _board.GetAvailableSpots());
+        }
+        
+
+        [Test]
+        public void ReturnsTrueIfSpotIsZero()
+        {
+            Assert.True(_board.IsAvailableSpot(0));
+            Assert.False(_board.IsAvailableSpot(2));
+            Assert.False(_board.IsAvailableSpot(2048));
+        }
     }
 }
