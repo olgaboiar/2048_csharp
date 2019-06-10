@@ -2,7 +2,7 @@ using System;
 
 namespace csharp2048
 {
-    public class ConsoleInterface
+    public class ConsoleInterface : IUserInterface
     {
         public void Output(string message)
         {
