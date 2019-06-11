@@ -13,5 +13,10 @@ namespace csharp2048
         {
             return Console.ReadLine();
         }
+
+        public ConsoleKey ReadArrow()
+        {
+            return Console.ReadKey(true).Key;
+        }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace csharp2048
 {
     public class UserInterface
@@ -12,6 +14,11 @@ namespace csharp2048
         {
             var greeting = "Hello! Lets play 2048! Try to get to 2048 tile!";
             _ui.Output(greeting);
+        }
+
+        public ConsoleKey GetDirection()
+        {
+            return _ui.ReadArrow();
         }
     }
 }
