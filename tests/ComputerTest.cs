@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace Tests
 {
+    [TestFixture]
     public class ComputerTest
     {
         private Computer _testComp;

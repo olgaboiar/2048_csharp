@@ -5,6 +5,7 @@ using System.IO;
 
 namespace Tests
 {
+    [TestFixture]
     public class ConsoleInterfaceTest
     {
         private ConsoleInterface _consoleUserInterface;

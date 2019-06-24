@@ -5,6 +5,7 @@ using csharp2048;
 
 namespace Tests
 {
+    [TestFixture]
     public class BoardTest
     {
         private Board _board;

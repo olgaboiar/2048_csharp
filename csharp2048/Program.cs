@@ -6,7 +6,8 @@ namespace csharp2048
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Twenty48 twenty48 = new Twenty48();
+            twenty48.Run();
         }
     }
 }

@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace Tests
 {
+    [TestFixture]
     public class UserInterfaceTest
     {
         private UserInterface _ui;
@@ -26,10 +27,9 @@ namespace Tests
         [Test]
         public void PrintBoardIsCalledWithUiOutput()
         {
-//            var board = new Board();
-//            _ui.PrintBoard(board);
-//            Assert.AreEqual(1, _consoleMock.numTimesOutputCalled);
-
+            Board board = new Board();
+            _ui.PrintBoard(board);
+            Assert.AreEqual(1, _consoleMock.numTimesOutputCalled);
         }
     }
 }
